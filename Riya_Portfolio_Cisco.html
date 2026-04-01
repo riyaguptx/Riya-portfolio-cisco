@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riya Gupta — Business Analyst Intern | Cisco</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f4f0;
+    --bg2: #eeece6;
+    --white: #ffffff;
+    --surface: #ffffff;
+    --surface2: #faf9f7;
+    --cisco: #049fd9;
+    --cisco-dark: #0076a3;
+    --cisco-light: #e8f7fd;
+    --ink: #1a1a1a;
+    --ink2: #2d2d2d;
+    --muted: #6b6b6b;
+    --light: #999999;
+    --border: #e0ddd6;
+    --border2: #d0ccc3;
+    --accent: #c85a00;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 56px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-left { display: flex; align-items: center; gap: 20px; }
+
+  .nav-wordmark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--border2);
+  }
+
+  .nav-context {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links { display: flex; align-items: center; gap: 36px; }
+
+  nav a {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--ink); }
+
+  .nav-apply {
+    background: var(--cisco) !important;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 600 !important;
+  }
+
+  .nav-apply:hover { background: var(--cisco-dark) !important; }
+
+  /* HERO */
+  .hero {
+    padding: 144px 56px 100px;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .hero-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--cisco);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeIn 0.7s ease 0.1s forwards;
+  }
+
+  .hero-kicker::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--cisco);
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 1;
+    letter-spacing: -2px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeIn 0.7s ease 0.2s forwards;
+  }
+
+  .hero-role {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 36px;
+    letter-spacing: -0.2px;
+    opacity: 0;
+    animation: fadeIn 0.7s ease 0.3s forwards;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    color: var(--ink2);
+    line-height: 1.85;
+    margin-bottom: 40px;
+    max-width: 560px;
+    opacity: 0;
+    animation: fadeIn 0.7s ease 0.4s forwards;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeIn 0.7s ease 0.5s forwards;
+  }
+
+  .btn-cisco {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    background: var(--cisco);
+    color: white;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-cisco:hover { background: var(--cisco-dark); transform: translateY(-2px); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    background: transparent;
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: 1px solid var(--border2);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--cisco); color: var(--cisco); }
+
+  /* HERO SIDEBAR */
+  .hero-sidebar {
+    opacity: 0;
+    animation: fadeIn 0.7s ease 0.5s forwards;
+  }
+
+  .sidebar-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    margin-bottom: 16px;
+  }
+
+  .sidebar-card-header {
+    background: var(--cisco);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sidebar-card-header h3 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .sidebar-card-body { padding: 20px 24px; }
+
+  .sidebar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-row:last-child { border-bottom: none; }
+
+  .sidebar-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .sidebar-value {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: #e8f7fd;
+    border-radius: 50px;
+    border: 1px solid rgba(4,159,217,0.2);
+  }
+
+  .status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--cisco);
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .status-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--cisco-dark);
+    letter-spacing: 0.5px;
+  }
+
+  .match-bar-row { padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .match-bar-row:last-child { border-bottom: none; }
+
+  .match-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .match-label span:first-child {
+    font-size: 12px;
+    color: var(--ink2);
+  }
+
+  .match-label span:last-child {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--cisco);
+  }
+
+  .match-bar-bg {
+    height: 5px;
+    background: var(--bg2);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .match-bar-fill {
+    height: 100%;
+    background: var(--cisco);
+    border-radius: 3px;
+    transition: width 1.5s ease;
+  }
+
+  /* MAIN CONTENT */
+  .main-wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 56px 100px;
+  }
+
+  /* SECTION */
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--cisco);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 36px;
+    letter-spacing: -1px;
+    color: var(--ink);
+    margin-bottom: 48px;
+  }
+
+  hr.section-rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 80px 0;
+  }
+
+  /* MATCH GRID */
+  .match-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .match-card {
+    background: var(--white);
+    padding: 36px;
+    transition: background 0.2s;
+  }
+
+  .match-card:hover { background: var(--surface2); }
+
+  .match-card-icon {
+    width: 44px; height: 44px;
+    background: var(--cisco-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .match-card-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .match-card-text {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .jd-quote {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--cisco);
+    letter-spacing: 0.5px;
+    padding: 6px 10px;
+    background: var(--cisco-light);
+    border-left: 2px solid var(--cisco);
+    border-radius: 2px;
+    margin-top: 14px;
+    display: block;
+  }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 2px; }
+
+  .exp-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  .exp-block:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+  .exp-trigger {
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    gap: 24px;
+  }
+
+  .exp-trigger-left { flex: 1; }
+
+  .exp-org {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--cisco);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .exp-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+  }
+
+  .exp-period {
+    font-size: 12px;
+    color: var(--light);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .exp-toggle {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+
+  .exp-block.open .exp-toggle {
+    background: var(--cisco);
+    border-color: var(--cisco);
+    color: white;
+    transform: rotate(45deg);
+  }
+
+  .exp-content {
+    display: none;
+    padding: 0 32px 28px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+
+  .exp-block.open .exp-content { display: block; }
+
+  .exp-list-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .exp-list-items li {
+    font-size: 14px;
+    color: var(--muted);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.7;
+  }
+
+  .exp-list-items li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--cisco);
+    font-size: 11px;
+    top: 3px;
+  }
+
+  /* SKILLS TABLE */
+  .skills-table {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+
+  .skills-table-header {
+    display: grid;
+    grid-template-columns: 200px 1fr 80px;
+    padding: 12px 24px;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  .skills-table-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 80px;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    transition: background 0.15s;
+  }
+
+  .skills-table-row:last-child { border-bottom: none; }
+  .skills-table-row:hover { background: var(--surface2); }
+
+  .skill-cat {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .skill-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    color: var(--ink2);
+  }
+
+  .skill-chip.primary {
+    background: var(--cisco-light);
+    border-color: rgba(4,159,217,0.25);
+    color: var(--cisco-dark);
+  }
+
+  .skill-level {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--cisco);
+    letter-spacing: 0.5px;
+    text-align: right;
+  }
+
+  /* PROJECTS */
+  .projects-list { display: flex; flex-direction: column; gap: 20px; }
+
+  .project-row {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: start;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .project-row:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+  }
+
+  .project-meta { }
+
+  .project-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--bg2);
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: -2px;
+  }
+
+  .project-type-badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+  }
+
+  .badge-blue {
+    background: var(--cisco-light);
+    border: 1px solid rgba(4,159,217,0.2);
+    color: var(--cisco-dark);
+  }
+
+  .badge-orange {
+    background: rgba(200,90,0,0.06);
+    border: 1px solid rgba(200,90,0,0.15);
+    color: var(--accent);
+  }
+
+  .badge-gray {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    color: var(--muted);
+  }
+
+  .project-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  .project-school {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .project-description {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .project-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tool-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    background: var(--bg);
+    border: 1px solid var(--border2);
+    color: var(--muted);
+  }
+
+  /* CERTIFICATIONS */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .cert-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .cert-card:hover {
+    border-color: var(--cisco);
+    box-shadow: 0 4px 16px rgba(4,159,217,0.08);
+  }
+
+  .cert-issuer {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--cisco);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .cert-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* CONTACT */
+  .contact-strip {
+    background: var(--ink);
+    color: white;
+    padding: 80px 56px;
+    margin: 0 -56px -100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .contact-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 44px;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .contact-heading span { color: var(--cisco); }
+
+  .contact-sub {
+    color: rgba(255,255,255,0.5);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .contact-details { display: flex; flex-direction: column; gap: 16px; }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.08);
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .contact-row:hover { background: rgba(4,159,217,0.15); border-color: rgba(4,159,217,0.3); }
+
+  .contact-icon { font-size: 18px; width: 24px; text-align: center; }
+
+  .contact-info { flex: 1; }
+
+  .contact-info-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .contact-info-val {
+    font-size: 14px;
+    color: white;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 24px 56px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  footer p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.5px;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .hero, .main-wrap { padding-left: 24px; padding-right: 24px; }
+    .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 104px; }
+    .match-grid, .cert-grid { grid-template-columns: 1fr; }
+    .skills-table-header, .skills-table-row { grid-template-columns: 1fr; }
+    .skill-level { text-align: left; margin-top: 6px; }
+    .project-row { grid-template-columns: 1fr; gap: 20px; }
+    .project-number { font-size: 32px; }
+    .contact-strip { grid-template-columns: 1fr; gap: 48px; margin: 0; }
+    footer { flex-direction: column; gap: 8px; padding: 20px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="#" class="nav-wordmark">Riya Gupta</a>
+    <div class="nav-divider"></div>
+    <span class="nav-context">Cisco — Business Analyst Intern</span>
+  </div>
+  <div class="nav-links">
+    <a href="#fit">Role Fit</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact" class="nav-apply">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-kicker">Business Analyst Intern · Cisco Systems</div>
+    <h1 class="hero-name">Riya<br>Gupta</h1>
+    <p class="hero-role">MBA Candidate, Information Systems · SDSU · Dec 2026</p>
+    <p class="hero-desc">
+      I'm an analytical, process-oriented problem-solver with hands-on experience in business analysis, data infrastructure, cross-functional collaboration, and process improvement. I'm applying for Cisco's Business Analyst Intern role — and my background maps directly to what this team does.
+    </p>
+    <div class="hero-cta-row">
+      <a href="mailto:guptariya471@gmail.com" class="btn-cisco">↗ Get in Touch</a>
+      <a href="https://linkedin.com/in/riyaguptx" target="_blank" class="btn-outline">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="hero-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <h3>Application Status</h3>
+      </div>
+      <div class="sidebar-card-body">
+        <div class="sidebar-row">
+          <span class="sidebar-label">Position</span>
+          <span class="sidebar-value">Business Analyst I (Intern)</span>
+        </div>
+        <div class="sidebar-row">
+          <span class="sidebar-label">Location</span>
+          <span class="sidebar-value">Remote, United States</span>
+        </div>
+        <div class="sidebar-row">
+          <span class="sidebar-label">Available</span>
+          <span class="sidebar-value">Summer 2026</span>
+        </div>
+        <div class="sidebar-row">
+          <span class="sidebar-label">Status</span>
+          <div class="status-badge">
+            <div class="status-dot"></div>
+            <span class="status-text">Actively Applying</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <h3>JD Match — Key Qualifications</h3>
+      </div>
+      <div class="sidebar-card-body">
+        <div class="match-bar-row">
+          <div class="match-label">
+            <span>Analytical & Problem-Solving</span>
+            <span>Strong</span>
+          </div>
+          <div class="match-bar-bg"><div class="match-bar-fill" style="width:95%"></div></div>
+        </div>
+        <div class="match-bar-row">
+          <div class="match-label">
+            <span>Cross-Functional Collaboration</span>
+            <span>Strong</span>
+          </div>
+          <div class="match-bar-bg"><div class="match-bar-fill" style="width:92%"></div></div>
+        </div>
+        <div class="match-bar-row">
+          <div class="match-label">
+            <span>Process Improvement Orientation</span>
+            <span>Strong</span>
+          </div>
+          <div class="match-bar-bg"><div class="match-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="match-bar-row">
+          <div class="match-label">
+            <span>Data Analysis & Reporting</span>
+            <span>Strong</span>
+          </div>
+          <div class="match-bar-bg"><div class="match-bar-fill" style="width:93%"></div></div>
+        </div>
+        <div class="match-bar-row">
+          <div class="match-label">
+            <span>Business/Supply Chain Background</span>
+            <span>Strong</span>
+          </div>
+          <div class="match-bar-bg"><div class="match-bar-fill" style="width:88%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-wrap">
+
+  <hr class="section-rule">
+
+  <!-- FIT -->
+  <section id="fit">
+    <div class="section-label">Role Alignment</div>
+    <h2 class="section-title">Why I'm the right fit for Cisco</h2>
+    <div class="match-grid">
+      <div class="match-card">
+        <div class="match-card-icon">🔎</div>
+        <h3 class="match-card-title">Analytical Problem-Solving with Real Business Impact</h3>
+        <p class="match-card-text">I've analyzed internal processes, diagnosed inefficiencies using root-cause analysis, and delivered improvements with measurable outcomes — including ~20% cycle time reduction and 30% reduced reporting overhead.</p>
+        <span class="jd-quote">JD: "develop creative solutions for real business challenges"</span>
+      </div>
+      <div class="match-card">
+        <div class="match-card-icon">🤝</div>
+        <h3 class="match-card-title">Proven Cross-Functional Collaboration</h3>
+        <p class="match-card-text">Coordinated across engineering, product, field, procurement, sales, and marketing stakeholders. I've run alignment sessions, written documentation, and tracked progress across multi-functional engagements in global-style environments.</p>
+        <span class="jd-quote">JD: "collaborate on multi-functional projects"</span>
+      </div>
+      <div class="match-card">
+        <div class="match-card-icon">📊</div>
+        <h3 class="match-card-title">Data Infrastructure & Reporting Systems</h3>
+        <p class="match-card-text">Built dashboards tracking 15+ KPIs from 4 integrated data sources; automated consolidation workflows; designed AWS RDS infrastructure using Python and SQL to surface actionable insights for leadership decision-making.</p>
+        <span class="jd-quote">JD: "analyze internal processes, data, and problems"</span>
+      </div>
+      <div class="match-card">
+        <div class="match-card-icon">⚙️</div>
+        <h3 class="match-card-title">Process-Oriented with Customer Focus</h3>
+        <p class="match-card-text">I simplify complexity by mapping workflows, identifying gaps, and delivering structured documentation that improves consistency and reduces friction. I always think from the end user's perspective — whether internal teams or customers.</p>
+        <span class="jd-quote">JD: "process-oriented with a strive to simplify and improve processes"</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Work History</div>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="exp-list">
+
+      <div class="exp-block open">
+        <div class="exp-trigger" onclick="toggleBlock(this)">
+          <div class="exp-trigger-left">
+            <div class="exp-org">Times Café</div>
+            <div class="exp-title">Business Operations & Analytics Lead</div>
+            <div class="exp-period">Dec 2021 – Dec 2023</div>
+          </div>
+          <div class="exp-toggle">+</div>
+        </div>
+        <div class="exp-content">
+          <ul class="exp-list-items">
+            <li>Analyzed cross-functional workflows across operations, procurement, sales, and marketing; diagnosed inefficiencies using structured root-cause analysis; implemented process improvements that reduced cycle times by ~20%.</li>
+            <li>Integrated 4 data sources into dashboards tracking 15+ KPIs; automated data consolidation workflows; surfaced insights that enabled faster leadership decision-making across the organization.</li>
+            <li>Partnered with operations, procurement, sales, and marketing to align on priorities, track progress, and deliver improvements with measurable business impact.</li>
+            <li>Authored SOPs, process guides, and structured briefs that improved consistency, reduced onboarding friction, and gave leadership clear visibility into organizational performance.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-trigger" onclick="toggleBlock(this)">
+          <div class="exp-trigger-left">
+            <div class="exp-org">Alois Solutions — Healthcare IT</div>
+            <div class="exp-title">Business Analytics & Technology Intern</div>
+            <div class="exp-period">Sep 2022 – Nov 2022</div>
+          </div>
+          <div class="exp-toggle">+</div>
+        </div>
+        <div class="exp-content">
+          <ul class="exp-list-items">
+            <li>Mapped reporting workflows in a compliance-driven technology environment; identified gaps and inefficiencies; contributed to system improvements that reduced manual data overhead by ~30%.</li>
+            <li>Maintained documentation standards, synthesized data from multiple systems, and ensured cross-functional teams had accurate, timely information to support execution and decision-making.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-trigger" onclick="toggleBlock(this)">
+          <div class="exp-trigger-left">
+            <div class="exp-org">Unschool</div>
+            <div class="exp-title">Product & Growth Marketing Intern</div>
+            <div class="exp-period">May 2021 – Jul 2021</div>
+          </div>
+          <div class="exp-toggle">+</div>
+        </div>
+        <div class="exp-content">
+          <ul class="exp-list-items">
+            <li>Conducted competitive research, analyzed A/B test results, and synthesized findings into clear recommendations; drove a 40% improvement in campaign engagement through iterative, data-driven process improvement.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">Academic & Applied Work</div>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-list">
+
+      <div class="project-row">
+        <div class="project-meta">
+          <div class="project-number">01</div>
+          <span class="project-type-badge badge-blue">Business Analysis</span>
+          <div class="project-name">Enterprise AI & Strategy Platform</div>
+          <div class="project-school">SDSU · Jan – May 2025</div>
+        </div>
+        <div>
+          <p class="project-description">Led a multi-functional strategy engagement — mapped workflows across engineering, product, and field teams; synthesized findings into a prioritized improvement backlog with clear business benefit framing; delivered recommendations to 4 industry stakeholders. Built AWS RDS data infrastructure using Python and SQL; designed dashboards tracking KPIs and execution progress in real time; established planning cadences and ran bi-weekly alignment sessions across a complex, global-style project environment.</p>
+          <div class="project-tools">
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">SQL</span>
+            <span class="tool-tag">AWS RDS</span>
+            <span class="tool-tag">Pandas</span>
+            <span class="tool-tag">SQLAlchemy</span>
+            <span class="tool-tag">Process Mapping</span>
+            <span class="tool-tag">Cross-Functional Coordination</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-meta">
+          <div class="project-number">02</div>
+          <span class="project-type-badge badge-orange">Data Systems</span>
+          <div class="project-name">Cybersecurity SOC Database System</div>
+          <div class="project-school">SDSU MIS 686 · Aug – Dec 2025</div>
+        </div>
+        <div>
+          <p class="project-description">Designed a normalized 12-table database schema on AWS RDS; developed Python analytics dashboards answering key performance questions — MTTD, MTTC, MTTR; translated technical findings into clear executive-ready visualizations for non-technical stakeholders.</p>
+          <div class="project-tools">
+            <span class="tool-tag">AWS RDS</span>
+            <span class="tool-tag">MySQL</span>
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">Matplotlib</span>
+            <span class="tool-tag">Executive Visualization</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-meta">
+          <div class="project-number">03</div>
+          <span class="project-type-badge badge-gray">Competitive Analysis</span>
+          <div class="project-name">Procter & Gamble — Process & Competitive Analysis</div>
+          <div class="project-school">SDSU · 2025</div>
+        </div>
+        <div>
+          <p class="project-description">Analyzed operations across 3 business segments; benchmarked 5 global competitors; synthesized findings into an executive presentation with prioritized, evidence-backed improvement recommendations. Developed structured analysis identifying process gaps and competitive opportunities with clear business impact framing.</p>
+          <div class="project-tools">
+            <span class="tool-tag">Competitive Research</span>
+            <span class="tool-tag">Process Analysis</span>
+            <span class="tool-tag">KPI Frameworks</span>
+            <span class="tool-tag">Executive Presentations</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- SKILLS -->
+  <section>
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">Skills & Tools</h2>
+    <div class="skills-table">
+      <div class="skills-table-header">
+        <span>Category</span>
+        <span>Tools & Skills</span>
+        <span style="text-align:right">Level</span>
+      </div>
+      <div class="skills-table-row">
+        <span class="skill-cat">Analysis & Process</span>
+        <div class="skill-items">
+          <span class="skill-chip primary">Business Analysis</span>
+          <span class="skill-chip primary">Process Improvement</span>
+          <span class="skill-chip primary">Root-Cause Analysis</span>
+          <span class="skill-chip">Competitive Research</span>
+          <span class="skill-chip">KPI Frameworks</span>
+          <span class="skill-chip">Data Synthesis</span>
+          <span class="skill-chip">OKR Planning</span>
+        </div>
+        <span class="skill-level">Proficient</span>
+      </div>
+      <div class="skills-table-row">
+        <span class="skill-cat">Technical</span>
+        <div class="skill-items">
+          <span class="skill-chip primary">SQL</span>
+          <span class="skill-chip primary">Python</span>
+          <span class="skill-chip primary">Excel (Advanced)</span>
+          <span class="skill-chip">Tableau</span>
+          <span class="skill-chip">Power BI</span>
+          <span class="skill-chip">AWS RDS</span>
+          <span class="skill-chip">Pandas</span>
+          <span class="skill-chip">SQLAlchemy</span>
+          <span class="skill-chip">Smartsheet</span>
+          <span class="skill-chip">Jira</span>
+        </div>
+        <span class="skill-level">Proficient</span>
+      </div>
+      <div class="skills-table-row">
+        <span class="skill-cat">Collaboration</span>
+        <div class="skill-items">
+          <span class="skill-chip primary">Cross-Functional Coordination</span>
+          <span class="skill-chip primary">Executive Communication</span>
+          <span class="skill-chip">Documentation & SOPs</span>
+          <span class="skill-chip">SharePoint</span>
+          <span class="skill-chip">Google Workspace</span>
+          <span class="skill-chip">Microsoft Teams</span>
+        </div>
+        <span class="skill-level">Strong</span>
+      </div>
+      <div class="skills-table-row">
+        <span class="skill-cat">AI & Emerging</span>
+        <div class="skill-items">
+          <span class="skill-chip">Claude</span>
+          <span class="skill-chip">ChatGPT</span>
+          <span class="skill-chip">AI-Enabled Workflows</span>
+        </div>
+        <span class="skill-level">Familiar</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- CERTIFICATIONS -->
+  <section>
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Certifications & Leadership</h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-issuer">Pendo</div>
+        <div class="cert-name">Product Management & Product-Led Growth</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Product School</div>
+        <div class="cert-name">Product Experimentation & Prioritization</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Product School</div>
+        <div class="cert-name">AI for Product & Leadership</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">PMI</div>
+        <div class="cert-name">Predictive Project Management</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">SDSU MBA Program</div>
+        <div class="cert-name">Graduate Projects Lead — MBA Analytics & Operations</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Navrachana University · 2022</div>
+        <div class="cert-name">Marketer of the Year</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <div id="contact" class="contact-strip">
+    <div>
+      <h2 class="contact-heading">Ready to contribute<br>to <span>Cisco's mission.</span></h2>
+      <p class="contact-sub">I'm genuinely excited about the opportunity to analyze internal processes, collaborate across multi-functional teams, and develop creative solutions to real business challenges at Cisco. Let's connect.</p>
+    </div>
+    <div class="contact-details">
+      <a href="mailto:guptariya471@gmail.com" class="contact-row">
+        <span class="contact-icon">✉️</span>
+        <div class="contact-info">
+          <span class="contact-info-label">Email</span>
+          <span class="contact-info-val">guptariya471@gmail.com</span>
+        </div>
+      </a>
+      <a href="tel:6196758598" class="contact-row">
+        <span class="contact-icon">📞</span>
+        <div class="contact-info">
+          <span class="contact-info-label">Phone</span>
+          <span class="contact-info-val">(619) 675-8598</span>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/riyaguptx" target="_blank" class="contact-row">
+        <span class="contact-icon">💼</span>
+        <div class="contact-info">
+          <span class="contact-info-label">LinkedIn</span>
+          <span class="contact-info-val">linkedin.com/in/riyaguptx</span>
+        </div>
+      </a>
+      <a href="#" class="contact-row">
+        <span class="contact-icon">🎓</span>
+        <div class="contact-info">
+          <span class="contact-info-label">Education</span>
+          <span class="contact-info-val">MBA Information Systems · SDSU · Dec 2026</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div><!-- end main-wrap -->
+
+<footer>
+  <p>© 2026 Riya Gupta · San Diego, CA</p>
+  <p>Applying to Cisco Systems — Business Analyst I Intern</p>
+</footer>
+
+<script>
+  function toggleBlock(trigger) {
+    const block = trigger.parentElement;
+    block.classList.toggle('open');
+  }
+
+  // Intersection observer fade
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.match-card, .exp-block, .project-row, .cert-card, .skills-table-row').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = el.style.transition + ', opacity 0.5s ease, transform 0.5s ease';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
